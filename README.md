@@ -23,20 +23,25 @@ The boolean type info object.
 
 ```js
 var BooleanType  = require('boolean-type')
-var Bool = BooleanType()
-var s = Bool.create('a str')
-console.log(s+ '!')
-//='a str!'
-console.log(s.isValid())
+var Bool = BooleanType({boolNames: {
+  false: ['false', 'no', 'wrong']
+  true:  ['true', 'yes', 'ok']
+}})
+var b = Bool.create('true')
+//or b= Bool.create('yes')
+//or b= Bool.create('ok')
+console.log(String(b))
+//=true
+console.log(b.isValid())
 //=true
 console.log(s.toJson()))
-//='"a str"'
+//="true"
 console.log(s.toJson({withType:true})))
-//='{"value":'a str',"name":"String","min":1,"max":6}'
-n.assign('1234567')
-//=TypeError: "1234567" is an invalid String
-n.assign('123456')
-//="123456"
+//='{"value":"true","name":"Boolean","boolNames":{"false":["false","no","wrong"],"true":["true","yes","ok"]}}'
+n.assign('w')
+//=TypeError: "w" is an invalid Boolean
+n.assign('wrong')
+//n.valueOf()=false
 ```
 
 ## API
