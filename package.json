@@ -1,7 +1,7 @@
 {
   "name": "boolean-type",
   "description": "the boolean type object.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/snowyu/boolean-type.js",
   "repository": {
     "type": "git",
