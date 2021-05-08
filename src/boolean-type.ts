@@ -2,7 +2,12 @@ import isString from 'util-ex/lib/is/type/string'
 import isNumber from 'util-ex/lib/is/type/number'
 import isBoolean from 'util-ex/lib/is/type/boolean'
 
-import { Type, register, defineProperties } from 'abstract-type'
+import {
+  Type,
+  register,
+  defineProperties,
+  ITypeObjectOptions,
+} from 'abstract-type'
 
 export class BooleanType extends Type {
   declare static boolNames: { false: string[]; true: string[] }
@@ -28,7 +33,7 @@ export class BooleanType extends Type {
     return result
   }
 
-  _validate(aValue, aOptions) {
+  _validate(aValue, aOptions: ITypeObjectOptions): boolean {
     aValue = BooleanType.toValue(aValue, aOptions)
     const result = isBoolean(aValue)
     return result
