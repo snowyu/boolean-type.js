@@ -22,12 +22,15 @@ The boolean type info object.
 ## Usage
 
 ```js
-var BooleanType  = require('boolean-type')
-var Bool = BooleanType({boolNames: {
-  false: ['false', 'no', 'wrong']
-  true:  ['true', 'yes', 'ok']
-}})
-var b = Bool.create('true')
+
+import { BooleanType } from 'boolean-type'
+
+var b = new BooleanType('true', {
+  boolNames: {
+    false: ['false', 'no', 'wrong']
+    true:  ['true', 'yes', 'ok']
+  }
+})
 //or b= Bool.create('yes')
 //or b= Bool.create('ok')
 console.log(String(b))
